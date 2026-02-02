@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍰</text></svg>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Ratio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button id="settingsBtn" class="icon-btn" title="Manage Data">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="3"></circle>
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+    </svg>
+</button>
+
+<div id="settingsModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h2>Data Management</h2>
+            <span class="close-modal">&times;</span>
+        </div>
+        <p class="modal-intro">Download CSVs, edit externally, and re-upload.</p>
+
+        <div id="settingsContainer"></div>
+    </div>
+</div>
+
+<div class="app-container">
+    <header>
+        <h1>Ratio.</h1>
+        <p>Baking Calculator</p>
+    </header>
+
+    <div class="card input-card">
+        <div class="input-group">
+            <label for="cakeType">STYLE</label>
+            <div class="select-wrapper">
+                <select id="cakeType"></select>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="vessel">VESSEL</label>
+            <div class="select-wrapper">
+                <select id="vessel"></select>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="inclusions">INCLUSIONS</label>
+            <div class="select-wrapper">
+                <select id="inclusions">
+                    <option value="none">None</option>
+                </select>
+            </div>
+        </div>
+
+        <button onclick="calculateRecipe()" class="btn-main">CALCULATE</button>
+    </div>
+
+    <div id="resultCard" class="card result-card" style="display:none;">
+        <div class="recipe-header">
+            <h2 id="outTitle"></h2>
+            <div class="recipe-tags" id="outMeta"></div>
+        </div>
+
+        <div id="safetyWarning" class="warning-box"></div>
+
+        <div id="ingredientsList" class="ing-list"></div>
+
+        <div class="method-section">
+            <div class="method-step">
+                <span class="method-label">PREP</span>
+                <p id="outPrep"></p>
+            </div>
+            <div class="method-step">
+                <span class="method-label">METHOD</span>
+                <p id="outMethod"></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+
+</html>
